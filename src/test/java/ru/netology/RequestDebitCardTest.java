@@ -34,8 +34,9 @@ public class RequestDebitCardTest {
     }
 
     @Test
-    void shouldTestv1() {
+    void shouldTestv1() throws InterruptedException {
         driver.get("http://localhost:9999");
+        Thread.sleep(5000);
         List<WebElement> elements = driver.findElements(By.className("input__control"));
         elements.get(0).sendKeys("Николай Пупов");
         elements.get(1).sendKeys("+79000000000");
