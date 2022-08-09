@@ -9,17 +9,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+class ChromeTest {
 
-public class RequestDebitCardTest {
-    private WebDriver driver;
+    WebDriver driver;
 
     @BeforeAll
     static void setupAll() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\daimo\\IdeaProjects\\DZ21Netology\\Drivers\\Win\\chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
@@ -28,10 +30,11 @@ public class RequestDebitCardTest {
     }
 
     @AfterEach
-    void tearDown() {
+    void teardown() {
         driver.quit();
-        driver = null;
     }
+
+
 
     @Test
     void shouldTestv1() throws InterruptedException {
